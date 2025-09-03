@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgb(20, 0, 44), rgb(0, 1, 41));
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 30vw;
+    min-height: 40vh;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+div#container {
+    width: 90%;
+}
+
+div#input-box {
+    width: 90%;
+    background-color: rgb(215, 215, 215);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+div#input-box input {
+    outline: 0;
+    padding: 5px;
+    padding-left: 20px;
+    text-align: left;
+    border-radius: 80px;
+    border: none;
+    background-color: transparent;
+}
+
+div#input-box input:focus {
+    border: none;
+    outline: 0;
+    color: rgb(114, 114, 114);
+}
+
+div#input-box button {
+    padding: 15px;
+    border-radius: 50px;
+    background-color: rgb(9, 179, 54);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+span {
+    transition: 0.2s;
+}
+
+span:hover {
+    color: rgb(153, 153, 153);
+}
+
+div#esquerda {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.task {
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.task button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.task input[type="checkbox"] {
+  display: none;
+}
+
+.task label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative; 
+}
+
+.task input[type="checkbox"]:checked + label {
+  background-color: #36cd70;
+  border-color: #29bb5a; 
+}
+
+.task input[type="checkbox"]:checked + label::after {
+  font-family: 'Material Symbols Outlined';
+  content: 'done';
+  font-size: 16px; 
+  color: #fff; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}
