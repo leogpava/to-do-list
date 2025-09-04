@@ -8,12 +8,17 @@ window.addEventListener("load", function(){
     } else { 
         addHTML(lista_tarefas)
     }
+
+    invisible()
 })  
 
 
 document.getElementById("add").addEventListener("click", function() {
     let input = document.getElementById("input-task")
-    if (input.value === "") {window.alert("VAZIO")} else {
+    if (input.value === "") {
+        visible()
+    } else {
+    invisible()
     let task = {task:(input.value), status: "pendente"}
     lista_tarefas.push(task)
 
@@ -76,3 +81,16 @@ const addStorage = (lista_tarefas) => {
     let lista = JSON.stringify(lista_tarefas)
     localStorage.setItem("minhasTarefas", lista)
 }
+
+const visible = () => {
+    document.getElementById("warning").classList.remove("invisible")
+    document.getElementById("warning").classList.add("visible")
+}
+const invisible = () => {
+    document.getElementById("warning").classList.remove("visible")
+    document.getElementById("warning").classList.add("invisible")
+}
+
+document.getElementById("close").addEventListener("click", function(){
+    invisible()
+})
