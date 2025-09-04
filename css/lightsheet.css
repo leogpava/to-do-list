@@ -10,12 +10,13 @@
 body {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to bottom, rgb(20, 0, 44), rgb(0, 1, 41));
+    background: linear-gradient(to bottom, rgb(210, 210, 210), rgb(178, 145, 210));
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 main {
@@ -26,7 +27,7 @@ main {
     border-radius: 20px;
     display: flex;
     justify-content: center;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.559);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.184);
 }
 
 h1 {
@@ -34,6 +35,17 @@ h1 {
     text-align: center;
     padding: 20px;
     padding-top: 0px;
+}
+
+#changer {
+    background-color: rgb(255, 255, 255);
+    border-radius: 80px;
+    color: rgb(63, 0, 78);
+    font-size: 1.5em;
+    padding: 10px 25px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
 }
 
 div#container {

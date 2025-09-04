@@ -1,5 +1,21 @@
 let lista_tarefas = []
 
+document.getElementById("changer").addEventListener("click", function(){
+    let light = document.getElementById('light');
+    let dark = document.getElementById('dark');
+    let button = document.getElementById("changer")
+
+    if (light.disabled) {
+        light.disabled = false;
+        dark.disabled = true;
+        button.innerText = "Dark"
+    } else {
+        button.innerText = "Light"
+        light.disabled = true;
+        dark.disabled = false;
+    }
+})
+
 window.addEventListener("load", function(){
     let store = localStorage.getItem("minhasTarefas")
     if(store) { 

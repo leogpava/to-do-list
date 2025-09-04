@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgb(28, 28, 28), rgb(5, 0, 10));
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+main {
+    width: 25vw;
+    min-height: 20vh;
+    background-color: rgb(30, 30, 30);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0px 0px 200px rgba(67, 255, 98, 0.156);
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 20px;
+    padding-top: 0px;
+}
+
+div#container {
+    width: 90%;
+}
+
+div#mode {
+    width: 100%;
+}
+
+#changer {
+    background-color: rgb(0, 0, 0);
+    border-radius: 80px;
+    color: white;
+    font-size: 1.5em;
+    padding: 10px 25px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+div#input-box {
+    width: 90%;
+    background-color: rgb(50, 50, 50);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+div#input-box input {
+    outline: 0;
+    padding: 5px;
+    padding-left: 20px;
+    text-align: left;
+    border-radius: 80px;
+    border: none;
+    background-color: transparent;
+}
+
+div#input-box input:focus, input:enabled {
+    border: none;
+    outline: 0;
+    color: rgb(109, 109, 109);
+}
+
+div#input-box button {
+    padding: 15px;
+    border-radius: 50px;
+    background-color: rgb(34, 191, 76);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+span {
+    transition: 0.2s;
+    color: #b2b2b2;
+}
+
+span:hover {
+    color: rgb(80, 80, 80);
+}
+
+div#esquerda {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.task {
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content:space-between;
+    margin-bottom: -20px;
+}
+
+.task button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+}
+
+.task input[type="checkbox"] {
+  display: none;
+}
+
+.task label {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #6e6e6e;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative; 
+}
+
+.task input[type="checkbox"]:checked + label {
+  background-color: #36cd70;
+  border-color: #29bb5a; 
+}
+
+.task p {
+    color: #cecece;
+}
+
+.task input[type="checkbox"]:checked + label::after {
+  font-family: 'Material Symbols Outlined';
+  content: 'done';
+  font-size: 16px; 
+  color: #fff; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}
+
+.done {
+    color: rgb(100, 100, 100);
+    text-decoration: line-through;
+}
+
+div#warning {
+    background: rgba(0, 0, 0, 0.388);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#bloco {
+    background-color:rgb(30, 30, 30);
+    width: 20vw;
+    height: 20vh;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.348);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+div#l1 {
+    display: flex;
+    align-items: center;
+}
+
+div#l1 span {
+    color:rgb(228, 228, 228);
+}
+
+div#bloco h1 {
+    padding: 10px;
+    font-size: 1.3em;
+    color: rgb(228, 228, 228);
+}
+
+div#bloco p {
+    text-align: center;
+    color: #cecece;
+}
+
+div#bloco button { 
+    margin: 20px;
+    padding: 5px;
+    width: 12%;
+    background-color: #29bb5a;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.349);
+    transition: 0.2s;
+}
+
+div#bloco button:hover {
+    background-color: #00822b;
+    box-shadow: 0px 0px 8px rgba(27, 255, 88, 0.566)
+}
+
+.visible {
+    display: block;
+    pointer-events: auto;
+    opacity: 1;
+    transform: scaleY(1);
+    transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.invisible {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleY(-200px);
+    transform-origin: top;
+    transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
+}
