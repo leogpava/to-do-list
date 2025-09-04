@@ -9,16 +9,16 @@ window.addEventListener("load", function(){
         addHTML(lista_tarefas)
     }
 
-    invisible()
+    warningInvisible()
 })  
 
 
 document.getElementById("add").addEventListener("click", function() {
     let input = document.getElementById("input-task")
     if (input.value === "") {
-        visible()
+        warningVisible()
     } else {
-    invisible()
+    warningInvisible()
     let task = {task:(input.value), status: "pendente"}
     lista_tarefas.push(task)
 
@@ -26,7 +26,7 @@ document.getElementById("add").addEventListener("click", function() {
 
     if(lista_tarefas.length > 5) {window.alert("Limite de tarefas excedido.")} else {addHTML(lista_tarefas)}
 
-    (input.value) = "" 
+    input.value = "" 
     }
 })
 
@@ -82,15 +82,15 @@ const addStorage = (lista_tarefas) => {
     localStorage.setItem("minhasTarefas", lista)
 }
 
-const visible = () => {
+const warningVisible = () => {
     document.getElementById("warning").classList.remove("invisible")
     document.getElementById("warning").classList.add("visible")
 }
-const invisible = () => {
+const warningInvisible = () => {
     document.getElementById("warning").classList.remove("visible")
     document.getElementById("warning").classList.add("invisible")
 }
 
 document.getElementById("close").addEventListener("click", function(){
-    invisible()
+    warningInvisible()
 })
