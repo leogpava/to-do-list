@@ -1,4 +1,4 @@
-# 📝 TaskMaster - Sua Lista de Tarefas Pessoal
+# 📝 To-do List
 
 ![Badge de Licença](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Badge de Status](https://img.shields.io/badge/status-conclu%C3%ADdo-green.svg)
