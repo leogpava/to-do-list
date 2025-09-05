@@ -100,6 +100,7 @@ div#input-box input {
     padding: 5px;
     padding-left: 20px;
     text-align: left;
+    color: var(--text-color);
     border-radius: 80px;
     border: none;
     background-color: transparent;
@@ -108,7 +109,7 @@ div#input-box input {
 div#input-box input:focus, input:enabled {
     border: none;
     outline: 0;
-    color: var(--second-color);
+    color: var(--text-color);;
 }
 
 div#input-box button {
@@ -314,12 +315,14 @@ div#bloco button:hover {
         font-size: 1em;
     }
 
-    div#input-box button {
-       margin-right: -25px;
+    div#input-box {
+        justify-content: flex-end;
     }
 
     div#input-box input {
+        flex: 1;
         padding: 5px 10px; 
+        text-align: center;
     }
 
     div#bloco {
