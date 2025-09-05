@@ -1,22 +1,29 @@
 let lista_tarefas = []
+let darkmode = localStorage.getItem('darkmode')
+let button = document.getElementById("changer")
 
-document.getElementById("changer").addEventListener("click", function(){
-    let light = document.getElementById('light');
-    let dark = document.getElementById('dark');
-    let button = document.getElementById("changer")
-
-    if (light.disabled) {
-        light.disabled = false;
-        dark.disabled = true;
-        button.innerText = "Dark"
-    } else {
-        button.innerText = "Light"
-        light.disabled = true;
-        dark.disabled = false;
-    }
+button.addEventListener("click", function(){
+    darkmode = localStorage.getItem('darkmode')
+    darkmode !== 'active' ? enableDarkmode() : disableDarkmode();
 })
 
+const enableDarkmode = () => {
+    document.body.classList.add('darkmode')
+    localStorage.setItem('darkmode', 'active')
+    let icon = 'wb_sunny'
+    button.innerHTML = `<span class="material-symbols-outlined">${icon}</span>`
+}
+
+const disableDarkmode = () => {
+    document.body.classList.remove('darkmode')
+    localStorage.setItem('darkmode', null)
+    let icon = 'moon_stars'
+    button.innerHTML = `<span class="material-symbols-outlined">${icon}</span>`
+}
+
 window.addEventListener("load", function(){
+
+    darkmode === 'active' ? enableDarkmode() : disableDarkmode()
     let store = localStorage.getItem("minhasTarefas")
     if(store) { 
         lista_tarefas = JSON.parse(store)
