@@ -47,7 +47,7 @@ document.getElementById("add").addEventListener("click", function() {
 
     addStorage(lista_tarefas)
 
-    if(lista_tarefas.length > 5) {window.alert("Limite de tarefas excedido.")} else {addHTML(lista_tarefas)}
+    if(lista_tarefas.length > 6) {window.alert("Limite de tarefas excedido.")} else {addHTML(lista_tarefas)}
 
     input.value = "" 
     }
@@ -68,7 +68,7 @@ const addHTML = (lista) => {
                 <label for="checkbox-${index}"></label>
                 <p class="${classe}">${item.task}</p>
             </div>
-            <button id="apagar" data-index="${index}"><span class="material-symbols-outlined">close</span></button>
+            <button id="apagar" data-index="${index}"><span class="material-symbols-outlined" id="close">close</span></button>
         </div>`
     })
 }

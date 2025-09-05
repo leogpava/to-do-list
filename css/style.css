@@ -2,27 +2,27 @@
 
 :root {
     --bg-primary: rgb(255, 255, 255);
-    --bg-secondary: rgb(216, 171, 255);
+    --bg-secondary: rgb(206, 206, 206);
     --base-color: white;
     --second-color: rgb(215, 215, 215);
-    --header-color: rgb(60, 0, 97);
-    --button-color: #36cd70; 
-    --button-s-color: #29bb5a;
-    --text-color: rgb(30, 30, 30);
-    --shadow-color: rgba(0, 0, 0, 0.184);
+    --header-color: rgb(216, 7, 97);
+    --button-color: #E11D74; 
+    --button-s-color: #c71a66;
+    --text-color: #2d3436;
+    --shadow-color: rgba(45, 52, 54, 0.1);
     --done: rgba(0, 0, 0, 0.445);
 }
 
 .darkmode {
     --bg-primary: #050505;
-    --bg-secondary: rgb(10, 0, 28);
+    --bg-secondary: rgb(12, 12, 12);
     --base-color: #121212;
     --second-color: rgb(46, 46, 46);
     --header-color: rgb(233, 233, 233);
-    --button-color: rgb(98, 24, 209);
-    --button-s-color: rgb(101, 0, 156);
+    --button-color: #E11D74;
+    --button-s-color: #c71a66;
     --text-color: rgb(195, 195, 195);
-    --shadow-color: rgba(192, 18, 255, 0.066);
+    --shadow-color: rgba(199, 14, 110, 0.118);
     --done: rgba(72, 72, 72, 0.763);
 }
 
@@ -55,11 +55,13 @@ main {
     display: flex;
     justify-content: center;
     box-shadow: 0px 0px 40px var(--shadow-color);
+    animation: pulse-shadow 5s ease-in-out infinite;
 }
 
 h1 {
+    width: 100%;
     color: var(--header-color);
-    text-align: center;
+    text-align: left;
     padding: 20px;
     padding-top: 0px;
 }
@@ -68,17 +70,26 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: var(--base-color);
     border-radius: 100%;
     color: var(--header-color);
+    border: 1px solid var(--second-color);
     font-size: 1.5em;
     padding: 10px;
-    border: none;
     cursor: pointer;
-    margin-bottom: 30px;
+    margin-right: 5px;
     box-shadow: 0px 0px 5px var(--shadow-color);
+}
+
+#changer:hover {
+    color: var(--button-color) !important;
+}
+
+#top {
+    width: 97%;
+    display: flex;
 }
 
 div#container {
@@ -113,6 +124,10 @@ div#input-box input:focus, input:enabled {
 }
 
 div#input-box button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
     padding: 15px;
     border-radius: 50px;
     background-color: var(--button-color);
@@ -120,14 +135,42 @@ div#input-box button {
     color: white;
     cursor: pointer;
     font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
 }
 
-span {
+div#input-box button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.7s ease;
+     transform: skewX(-25deg);
+}
+
+div#input-box button:hover::before {
+    left: 100%;
+}
+
+div#input-box button:hover {
+    background-color: var(--button-hover-color, var(--button-color));
+}
+
+#esquerda span {
     color: var(--text-color);
     transition: 0.2s;
 }
 
-span:hover {
+#esquerda span:hover {
     color: var(--second-color);
 }
 
@@ -136,6 +179,14 @@ div#esquerda {
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+
+#close {
+    color: var(--button-color);
+}
+
+#close:hover {
+    color: var(--button-s-color);
 }
 
 .task {
@@ -195,7 +246,7 @@ div#esquerda {
 }
 
 div#warning {
-    background: rgba(0, 0, 0, 0.527);
+    background: rgba(0, 0, 0, 0.723);
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -209,7 +260,7 @@ div#bloco {
     width: 20vw;
     height: 20vh;
     border-radius: 20px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.348);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.349);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -273,6 +324,16 @@ div#bloco button:hover {
     transition: transform 0.2s ease-in-out, opacity 0.3s ease-in-out;
 }
 
+
+footer {
+    top: 90%;
+    position: absolute;
+}
+
+footer p {
+    color: var(--text-color);
+}
+
 @media (max-width: 768px) {
     main {
         width: 80vw; 
@@ -306,7 +367,7 @@ div#bloco button:hover {
     }
 
     h1 {
-        font-size: 1.3em;
+        font-size: 2em;
     }
 
     #changer {
@@ -340,5 +401,17 @@ div#bloco button:hover {
     .task button {
         width: 20px;
         height: 20px;
+    }
+}
+
+@keyframes pulse-shadow {
+    0% {
+        box-shadow: 0px 0px 40px var(--shadow-color); /* Começa com o tamanho original */
+    }
+    50% {
+        box-shadow: 0px 0px 20px var(--shadow-color); /* A sombra "cresce" */
+    }
+    100% {
+        box-shadow: 0px 0px 60px var(--shadow-color); /* Volta ao tamanho original */
     }
 }
